@@ -198,8 +198,8 @@ const displayAllCard = (id) => {
                 <div class="py-3  mt-4 p-4 space-y-4">
                     <div class="flex justify-between">
                         <div class= "flex status-img" >
-                            <img class="active-close" src="../assets/Closed- Status .png" alt="">
-                            <img class="active-open" src="../assets/Open-Status.png" alt="">
+                            <img class="active-close" src="assets/Closed-Status .png" alt="">
+                            <img class="active-open" src="assets/Open-Status.png" alt="">
                         </div>
                         <div class="bug-priority">
                             <p class="border  rounded-2xl px-3  uppercase text-xs font-bold">${card.priority}</p>
@@ -216,11 +216,11 @@ const displayAllCard = (id) => {
                     </div>
                     <div class="bug-part flex flex-col md:flex-row items-center gap-1 mb-2 min-h-12 md:min-h-10 lg:min-h-9">
                         <div class="flex items-center gap-1 border border-red-400 bg-[#FECACA]  rounded-2xl px-4 md:pl-3 py-1">
-                            <img src="../assets/Vector.png" class="w-3 h-3" alt="">
+                            <img src="assets/Vector.png" class="w-3 h-3" alt="">
                             <p class="text-red-400 font-semibold text-xs text-center uppercase">${card.labels[0]}</p>
                         </div>
                         <div class="label-one flex items-center gap-1 border border-[#D97706] bg-[#FFF6D1] rounded-2xl px-4 md:pl-2 py-1">
-                            <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
+                            <img src="assets/Lifebuoy.png" class="w-3 h-3" alt="">
                             <p class="text-[#D97706] font-semibold text-xs text-center uppercase">${labelStatus}</p>
                         </div>
                     </div>
