@@ -10,12 +10,12 @@ document.getElementById("login-btn").addEventListener("click",function(){
 
     // 2. matching the input 
     if(nameInputShow === 'admin' && passInputShow === "admin123"){
-        window.location.assign("home.html");
+        window.location.assign("./home.html");
     }
     else{
         alert("Invalid Username or Password. Please try again.");
         document.getElementById("password-input").value = "";
-        window.location.replace("index.html");
+        window.location.replace("./index.html");
         
     }
 })
