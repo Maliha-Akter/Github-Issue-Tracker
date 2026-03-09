@@ -15,7 +15,7 @@ document.getElementById("login-btn").addEventListener("click",function(){
     else{
         alert("Invalid Username or Password. Please try again.");
         document.getElementById("password-input").value = "";
-        window.location.replace("./index.html");
+        window.location.replace("index.html");
         
     }
 })
