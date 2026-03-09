@@ -5,7 +5,7 @@
 - **var** is a keyword which is used to declaring variable 
      - it is function scoped
      - can be re-declared and also can be updated
-     - Example:
+     - **Example**:
       ```javascript
         var name = "mira";
         var name = "Raj"; // redeclared
@@ -14,7 +14,7 @@
     - Block scoped
     - Cannot be re-declared
     - Can be updated
-    - Example:
+    - **Example**:
       ```javascript
         let age = 20;
         age = 25; // allowed
@@ -25,7 +25,7 @@
     - Cannot be re-declared
     - Cannot be updated
     - Must be initialized when declared
-    - Example:
+    - **Example**:
       ```javascript
         const PI = 3.14;
         // PI = 3.1416 
@@ -34,7 +34,7 @@
 
 - **spread operator (...)** expand or copy all elements of an array or object 
      - Spread With Arrays : It expands the elements of an array.
-       - Example :
+       - **Example** :
         ```javascript
         const numbers = [1, 2, 3];
         const newNumbers = [...numbers]; // it will copy all element 
@@ -43,7 +43,7 @@
         numbers.push (8);
         console.log(numbers)
     - Spread with Objects : It expands the elements of an object.
-      - Example :
+      - **Example**:
         ```javascript
         const user = {name: "John", age: 25 };
         const newUser = {...user ,city: "London"};
@@ -53,7 +53,7 @@
 - **map()** is used to transform each element of an array.
   - It returns a **new array**
   - The number of elements remains the same
-  **Example:**
+  - **Example:**
    ```javascript
   const numbers = [1, 2, 3];
   const doubled = numbers.map(num => num * 2);
@@ -62,7 +62,7 @@
 - **filter()** is used to select elements based on a condition.
   - It returns a new array
   - Only elements that match the condition are included
-   **Example:**
+  - **Example:**
     ```javascript
     const numbers = [1, 2, 3, 4];
     const evenNumbers = numbers.filter(num => num % 2 === 0);
@@ -71,7 +71,7 @@
 - **forEach()** is used to run a function for each element in an array.
     - It does not return a new array
     - It is mainly used to perform actions like print, or update something
-    **Example:**
+    - **Example:**
       ```javascript 
        const numbers = [1, 2, 3];
        numbers.forEach(num => {
@@ -83,7 +83,7 @@
 - **Arrow function** is a shorter syntax for writing functions in JavaScript.
    - It was introduced in **ES6**.
    - It uses the `=>` symbol instead of the `function` keyword.
-    **Example:**
+   - **Example:**
     ```javascript
        // Normal function we call
        function add(a, b) {
@@ -101,7 +101,7 @@
   instead of single quote (' ') or double (" ") quotes.
     - They were introduced in **ES6**.
     - They allow **embedding variables and expressions** inside a string using `${}`.
-       **Example:**
+    - **Example:**
          ```javascript
             const name = "Mira";
             const age = 20;
