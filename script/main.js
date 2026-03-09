@@ -3,6 +3,12 @@ document.getElementById("All-btn").classList.add("btn-hover");
 const btnAll = document.getElementById("All-btn");
 const btnOpen = document.getElementById("Open-btn");
 const btnClose = document.getElementById("Close-btn");
+//search part
+const SearchInput = document.getElementById("search-input");
+const SearchButton = document.getElementById("search-btn");
+SearchButton.addEventListener("click",()=>{
+    searchDetails();
+});
 
 // array
 let allIssues = [];
@@ -45,6 +51,17 @@ const loadAllCard = async () => {
 }
 const loadEachCardDetail = (id) => {
     displayEachCardDetail(id);
+}
+
+const searchDetails = async()=>{
+    const searchValue = SearchInput.value ;
+    // searchValue.classList.add("bg-yellow-200")
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`;
+    const res = await fetch(url);
+    const json = await res.json();
+    console.log(json.data);
+
+    displayAllCard(json.data)
 }
 
 const displayEachCardDetail = (details) => {
@@ -157,7 +174,7 @@ const displayAllCard = (id) => {
                             <img class="active-open" src="../assets/Open-Status.png" alt="">
                         </div>
                         <div>
-                            <p class="border border-red-400 rounded-2xl px-3 bg-red-200">${card.priority}</p>
+                            <p class="border border-red-400 rounded-2xl px-3 bg-red-200 uppercase text-xs font-bold">${card.priority}</p>
                         </div>
 
                     </div>
@@ -165,18 +182,18 @@ const displayAllCard = (id) => {
                         <div class = "min-h-16">
                         <h1 class="font-semibold">${card.title}</h1>
                         </div>
-                        <div class = "min-h-16">
+                        <div class = "min-h-14">
                         <p class="text-[#64748B] text-xs">${card.description}</p>
                         </div>
                     </div>
-                    <div class="bug-part flex items-center gap-2 mb-2">
-                        <div class="flex items-center gap-1 border border-red-400 rounded-2xl px-3">
+                    <div class="bug-part flex items-center gap-1 mb-2 min-h-10">
+                        <div class="flex items-center gap-1 border border-red-400 rounded-2xl px-4 md:pl-3">
                             <img src="../assets/Vector.png" class="w-3 h-3" alt="">
-                            <p class="text-red-400 font-semibold text-xs">${card.labels[0]}</p>
+                            <p class="text-red-400 font-semibold text-xs text-center uppercase">${card.labels[0]}</p>
                         </div>
-                        <div class="label-one flex items-center gap-1 border border-yellow-400 rounded-2xl px-3">
+                        <div class="label-one flex items-center gap-1 border border-[#D97706] rounded-2xl px-4 md:pl-2">
                             <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
-                            <p class="text-yellow-400 font-semibold text-xs">${labelStatus}</p>
+                            <p class="text-[#D97706] font-semibold text-xs text-center uppercase">${labelStatus}</p>
                         </div>
                     </div>
                 </div>
