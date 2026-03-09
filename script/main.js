@@ -6,7 +6,7 @@ const btnClose = document.getElementById("Close-btn");
 //search part
 const SearchInput = document.getElementById("search-input");
 const SearchButton = document.getElementById("search-btn");
-SearchButton.addEventListener("click",()=>{
+SearchButton.addEventListener("click", () => {
     searchDetails();
 });
 
@@ -14,37 +14,54 @@ SearchButton.addEventListener("click",()=>{
 let allIssues = [];
 
 const loadAllCard = async () => {
-    const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
-    const res = await fetch(url);
-    const json = await res.json();
-    allIssues = json.data
-    displayAllCard(allIssues);
+    spinner(true);
+    setTimeout(async () => {
+        const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+        const res = await fetch(url);
+        const json = await res.json();
+        allIssues = json.data
+        displayAllCard(allIssues);
+        spinner(false);
+    }, 500); // 50ms is enough
     // displayStatus(allIssues);
     // openButton.addEventListener("click", loadOpenCard(data.id));
     // Event Listeners for Filtering
-    document.getElementById("All-btn").addEventListener("click", () => {
+    document.getElementById("All-btn").addEventListener("click", async () => {
+        spinner(true);
+        await new Promise(time => setTimeout(time, 500));
         displayAllCard(allIssues);
         const btn = document.getElementById("All-btn");
         btnAll.classList.add("btn-hover");
         btnOpen.classList.remove("btn-hover");
         btnClose.classList.remove("btn-hover");
+        spinner(false)
 
     });
 
-    document.getElementById("Open-btn").addEventListener("click", () => {
+    document.getElementById("Open-btn").addEventListener("click", async () => {
+        spinner(true);
+        await new Promise(time => setTimeout(time, 500));
+
         const openIssues = allIssues.filter(issue => issue.status === "open");
         displayAllCard(openIssues);
         btnOpen.classList.add("btn-hover");
         btnAll.classList.remove("btn-hover");
         btnClose.classList.remove("btn-hover");
+
+        spinner(false)
     });
 
-    document.getElementById("Close-btn").addEventListener("click", () => {
+    document.getElementById("Close-btn").addEventListener("click", async () => {
+        spinner(true);
+        await new Promise(time => setTimeout(time, 500));
+
         const closedIssues = allIssues.filter(issue => issue.status === "closed");
         displayAllCard(closedIssues);
         btnClose.classList.add("btn-hover");
         btnAll.classList.remove("btn-hover");
         btnOpen.classList.remove("btn-hover");
+
+        spinner(false)
     });
 
 
@@ -53,8 +70,18 @@ const loadEachCardDetail = (id) => {
     displayEachCardDetail(id);
 }
 
-const searchDetails = async()=>{
-    const searchValue = SearchInput.value ;
+const spinner = (status) => {
+    if (status == true) {
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("card-info").classList.add("hidden");
+    }
+    else {
+        document.getElementById("spinner").classList.add("hidden");
+        document.getElementById("card-info").classList.remove("hidden");
+    }
+}
+const searchDetails = async () => {
+    const searchValue = SearchInput.value;
     // searchValue.classList.add("bg-yellow-200")
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`;
     const res = await fetch(url);
@@ -173,8 +200,8 @@ const displayAllCard = (id) => {
                             <img class="active-close" src="../assets/Closed- Status .png" alt="">
                             <img class="active-open" src="../assets/Open-Status.png" alt="">
                         </div>
-                        <div>
-                            <p class="border border-red-400 rounded-2xl px-3 bg-red-200 uppercase text-xs font-bold">${card.priority}</p>
+                        <div class="bug-priority">
+                            <p class="border  rounded-2xl px-3  uppercase text-xs font-bold">${card.priority}</p>
                         </div>
 
                     </div>
@@ -187,11 +214,11 @@ const displayAllCard = (id) => {
                         </div>
                     </div>
                     <div class="bug-part flex items-center gap-1 mb-2 min-h-10">
-                        <div class="flex items-center gap-1 border border-red-400 rounded-2xl px-4 md:pl-3">
+                        <div class="flex items-center gap-1 border border-red-400 bg-[#FECACA]  rounded-2xl px-4 md:pl-3 py-1">
                             <img src="../assets/Vector.png" class="w-3 h-3" alt="">
                             <p class="text-red-400 font-semibold text-xs text-center uppercase">${card.labels[0]}</p>
                         </div>
-                        <div class="label-one flex items-center gap-1 border border-[#D97706] rounded-2xl px-4 md:pl-2">
+                        <div class="label-one flex items-center gap-1 border border-[#D97706] bg-[#FDE68A] rounded-2xl px-4 md:pl-2 py-1">
                             <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
                             <p class="text-[#D97706] font-semibold text-xs text-center uppercase">${labelStatus}</p>
                         </div>
@@ -222,14 +249,27 @@ const displayAllCard = (id) => {
         cardDiv.addEventListener("click", () => {
             loadEachCardDetail(card);
         })
+
+        // high-medium-low design
+        const cardPriority = cardDiv.querySelector(".bug-priority p");
+        if (card.priority.toLowerCase() === 'high') {
+            cardPriority.classList.add("high-design")
+        }
+        else if (card.priority.toLowerCase() === 'medium') {
+            cardPriority.classList.add("medium-design")
+        }
+        else{
+            cardPriority.classList.add("low-design")
+        }
+        
         // 3. appending 
         cardInfo.append(cardDiv);
 
-
-
     }
+
     const cardSpan = document.getElementById("card-number");
     cardSpan.innerHTML = cardNo;
+
 }
 loadAllCard()
 

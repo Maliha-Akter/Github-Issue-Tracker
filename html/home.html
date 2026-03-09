@@ -27,10 +27,10 @@
 
 <body>
 
-    <header class="mt-4 px-8  mx-auto flex flex-col gap-5 md:flex-row md:justify-between  shadow-sm pb-3">
+    <header class="mt-4 px-8  mx-auto flex flex-col gap-5 md:flex-row md:justify-between  shadow-sm pb-3 top-0 sticky pt-3 bg-white">
         <div class="card-github-img flex items-center gap-1">
             <img class="w-9" src="../assets/github-logo.png" alt="">
-            <h1 class="font-semibold text-xl text-center">GitHub Issues Tracker</h1>
+            <h1 class="font-semibold text-xl text-center"><a href="../html/home.html">GitHub Issues Tracker</a></h1>
         </div>
         <div>
             <div class="join flex gap-4  bottom-4">
@@ -99,6 +99,7 @@
         </div>
 
     </section>
+    
     <!-- card part -->
 
     <section class="bg-[#F8FAFC] mt-14 w-11/12 mx-auto ">
@@ -122,6 +123,12 @@
             </div>
 
         </section>
+        <!-- spinner -->
+     <section >
+        <div id="spinner" class="flex items-center justify-center py-10 hidden">
+            <span class="loading loading-spinner loading-xl"></span>
+        </div>
+     </section>
         <!-- card -->
         <div id="card-info" class="  mb-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 shadow-sm rounded-lg space-y-5 ">
             <!-- <div>
