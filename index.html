@@ -22,23 +22,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- stylesheet -->
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 
 <body>
     <section class="w-6/12 md:w-4/12 mx-auto my-12 p-8  rounded-xl shadow-sm">
         <div class="card-github-img flex flex-col justify-between items-center space-y-2">
-            <img class="" src="../assets/github-logo.png" alt="">
+            <img class="" src="./assets/github-logo.png" alt="">
             <h1 class="font-bold text-2xl text-center">GitHub Issues Tracker</h1>
             <p class="text-[#64748B] text-center">Sign in to manage your issues</p>
         </div>
         <div class="card-body">
             <fieldset class="fieldset">
-                <label  class="label text-[#1F2937] font-bold text-[16px]">Username</label>
+                <label class="label text-[#1F2937] font-bold text-[16px]">Username</label>
                 <input type="text" id="name-input" class="input rounded-lg w-full" placeholder="Enter Username" />
                 <p class="helper-text text-xs">Default: admin</p>
                 <label class="label text-[#1F2937] font-bold text-[16px] mt-2">Password</label>
-                <input type="password" id="password-input" class="input rounded-lg w-full" placeholder="Enter Password" />
+                <input type="password" id="password-input" class="input rounded-lg w-full"
+                    placeholder="Enter Password" />
                 <p class="helper-text text-xs">Default: admin123</p>
 
                 <button id="login-btn" class="btn bg-[#4A00FF] rounded-lg text-white mt-4">Sign in</button>
@@ -50,18 +51,19 @@
                 </div>
                 <div class="text-center">
                     <p class="text-[#64748B] my-4">Demo Credentials:</p>
-                    <h2 >
-                       <span class="font-bold text-[16px]">Username:</span>  admin
+                    <h2>
+                        <span class="font-bold text-[16px]">Username:</span> admin
                     </h2>
                     <h2>
-                        <span class="font-bold text-[16px]">Password:</span> admin123</h2>
+                        <span class="font-bold text-[16px]">Password:</span> admin123
+                    </h2>
                 </div>
             </fieldset>
         </div>
     </section>
+    <script src="./script/login.js"></script>
+    <script src="./script/main.js"></script>
 
-    <script src="../script/login.js"></script>
-    <script src="../script/main.js"></script>
 </body>
 
 </html>
