@@ -209,11 +209,11 @@ const displayAllCard = (id) => {
                         <div class = "min-h-16">
                         <h1 class="font-semibold">${card.title}</h1>
                         </div>
-                        <div class = "min-h-14">
+                        <div class = "min-h-14 lg:min-h-16">
                         <p class="text-[#64748B] text-xs">${card.description}</p>
                         </div>
                     </div>
-                    <div class="bug-part flex items-center gap-1 mb-2 min-h-10">
+                    <div class="bug-part flex flex-col md:flex-row items-center gap-1 mb-2 min-h-12 md:min-h-10 lg:min-h-14">
                         <div class="flex items-center gap-1 border border-red-400 bg-[#FECACA]  rounded-2xl px-4 md:pl-3 py-1">
                             <img src="../assets/Vector.png" class="w-3 h-3" alt="">
                             <p class="text-red-400 font-semibold text-xs text-center uppercase">${card.labels[0]}</p>
@@ -258,10 +258,10 @@ const displayAllCard = (id) => {
         else if (card.priority.toLowerCase() === 'medium') {
             cardPriority.classList.add("medium-design")
         }
-        else{
+        else {
             cardPriority.classList.add("low-design")
         }
-        
+
         // 3. appending 
         cardInfo.append(cardDiv);
 
@@ -272,19 +272,3 @@ const displayAllCard = (id) => {
 
 }
 loadAllCard()
-
-// {
-//     "id": 47,
-//     "title": "Add code syntax highlighting",
-//     "description": "Implement syntax highlighting for code blocks in comments and descriptions.",
-//     "status": "open",
-//     "labels": [
-//         "enhancement",
-//         "good first issue"
-//     ],
-//     "priority": "low",
-//     "author": "syntax_simon",
-//     "assignee": "",
-//     "createdAt": "2024-01-25T11:00:00Z",
-//     "updatedAt": "2024-01-25T11:00:00Z"
-// }

@@ -50,52 +50,15 @@
             </div>
         </div>
     </header>
-    <!-- <div class="navbar bg-base-100 shadow-sm">
-        <div class="flex-none">
-            <button class="btn btn-square btn-ghost">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    class="inline-block h-5 w-5 stroke-current">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-            </button>
-            <ul class="menu menu-horizontal px-1">
-                <li><a>Link</a></li>
-                <li>
-                    <details>
-                        <summary>Parent</summary>
-                        <ul class="bg-base-100 rounded-t-none p-2">
-                            <li><a>Link 1</a></li>
-                            <li><a>Link 2</a></li>
-                        </ul>
-                    </details>
-                </li>
-            </ul>
-        </div>
-        <div class="flex-1">
-            <a class="btn btn-ghost text-xl">daisyUI</a>
-        </div>
-        <div class="flex-none">
-            <button class="btn btn-square btn-ghost">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    class="inline-block h-5 w-5 stroke-current">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
-                    </path>
-                </svg>
-            </button>
-        </div>
-    </div> -->
-
     <!-- main part start -->
-    <section class="bg-[#F8FAFC] mt-14 w-11/12 mx-auto py-6 pl-6 rounded-sm shadow-lg ">
-        <div class="flex gap-4 justify-center md:justify-start">
+    <section class="bg-[#F8FAFC] mt-14 w-11/12 mx-auto py-6  pl-6 rounded-sm shadow-lg ">
+        <div class="flex gap-4 justify-center px-2 md:pl-0 md:justify-start">
             <button onclick="" id="All-btn"
-                class="btn btn-ghost px-11 py-2 text-[#64748B] font-bold border border-gray-200 rounded-sm  hover:bg-[#83C8F2] hover:text-white ">All</button>
+                class="btn btn-ghost px-5 md:px-11 py-2 text-[#64748B] font-bold border border-gray-200 rounded-sm  hover:bg-[#83C8F2] hover:text-white ">All</button>
             <button id="Open-btn"
-                class="btn btn-ghost px-11 py-2 text-[#64748B] font-bold border border-gray-200 rounded-sm hover:bg-[#83C8F2] hover:text-white">Open</button>
+                class="btn btn-ghost px-5 md:px-11 py-2 text-[#64748B] font-bold border border-gray-200 rounded-sm hover:bg-[#83C8F2] hover:text-white">Open</button>
             <button id="Close-btn"
-                class="btn btn-ghost px-11 py-2 text-[#64748B] font-bold border border-gray-200 rounded-sm hover:bg-[#83C8F2] hover:text-white">Closed</button>
+                class="btn btn-ghost px-5 md:px-11 py-2 text-[#64748B] font-bold border border-gray-200 rounded-sm hover:bg-[#83C8F2] hover:text-white">Closed</button>
         </div>
 
     </section>
@@ -103,9 +66,9 @@
     <!-- card part -->
 
     <section class="bg-[#F8FAFC] mt-14 w-11/12 mx-auto ">
-        <section class="flex justify-between px-6 rounded-sm shadow-lg border-b-2 border-b-gray-400 mb-10">
+        <section class="flex flex-col justify-center items-center md:flex-row md:justify-between px-6 rounded-sm shadow-lg border-b-2 border-b-gray-400 mb-10 py-6 md:py-1">
             <div class="left-side-container flex gap-2 py-6 w-9/12 ">
-                <img class="p-2 border-none rounded-full bg-[#ECE4FF]" src="../assets/Aperture.png" alt="">
+                <img class="p-1 md:p-2 h-10 w-10 border-none rounded-full bg-[#ECE4FF]" src="../assets/Aperture.png" alt="">
                 <div>
                     <h2 class="font-semibold text-xl"><span id="card-number">50</span> Issues</h2>
                     <p class="text-[#64748B]">Track and manage your project issues</p>
@@ -130,97 +93,26 @@
         </div>
      </section>
         <!-- card -->
-        <div id="card-info" class="  mb-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 shadow-sm rounded-lg space-y-5 ">
-            <!-- <div>
-                <section class=" border-b-2 border-b-gray-400 ">
-                <div class="py-3  mt-10 p-4 space-y-4">
-                    <div class="flex justify-between">
-                        <div>
-                            <img src="../assets/Closed- Status .png" alt="">
-                            <img src="../assets/Open-Status.png" alt="">
-                        </div>
-                        <div>
-                            <p>High</p>
-                        </div>
-
-                    </div>
-                    <div class="card-text">
-                        <h1 class="font-semibold">Fix navigation menu on mobile devices</h1>
-                        <p class="text-[#64748B] text-xs">The navigation menu doesn't collapse properly on mobile
-                            devices...</p>
-                    </div>
-                    <div class="bug-part flex items-center gap-2">
-                        <div class="flex items-center gap-1 border border-red-400 rounded-2xl px-3">
-                            <img src="../assets/Vector.png" class="w-3 h-3" alt="">
-                            <p class="text-red-400 font-semibold">BUG</p>
-                        </div>
-                        <div class="flex items-center gap-1 border border-yellow-400 rounded-2xl px-3">
-                            <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
-                            <p class="text-yellow-400 font-semibold">HELP WANTED</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="p-4 space-y-2">
-                <p class="text-xs">#1 by john_doe</p>
-                <p class="text-xs">1/15/2024</p>
-            </div>
-            </div> -->
-
+        <div id="card-info" class="  mb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 shadow-sm rounded-lg space-y-5 ">
+            <!-- card-info part in main.js -->
         </div>
 
     </section>
 
     <!-- modal part -->
-    <!-- Open the modal using ID.showModal() method -->
-    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
             <div id="details-container" class="space-y-3">
-                <!-- <h1 class="text-2xl font-bold">Fix broken image uploads</h1>
-                <div class="flex space-x-3 mb-4">
-                    <div class="border bg-[#00A96E] text-white rounded-2xl px-3 py-1 text-xs text-center">Opened</div>
-                    <div class="flex items-center gap-1">
-                        <div class="w-1 h-1 rounded-full bg-[#515453] "></div>
-                        <p class="text-xs text-[#64748B]">Opened by Fahim Ahmed</p>
-                    </div>
-                    <div class="flex items-center gap-1">
-                        <div class="w-1 h-1 rounded-full bg-[#64748B] "></div>
-                        <p class="text-xs text-[#64748B]">22/02/2026</p>
-                    </div>
-
-                </div>
-                <div class="bug-part flex items-center gap-2 mb-5">
-                    <div class="flex items-center gap-1 border border-red-400 rounded-2xl px-3">
-                        <img src="../assets/Vector.png" class="w-3 h-3" alt="">
-                        <p class="text-red-400 font-semibold text-xs">${card.labels[0]}</p>
-                    </div>
-                    <div class="label-one flex items-center gap-1 border border-yellow-400 rounded-2xl px-3">
-                        <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
-                        <p class="text-yellow-400 font-semibold text-xs">${labelStatus}</p>
-                    </div>
-                </div>
-                <p class="text-[#64748B] mb-10">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior</p>
-                <div class="flex justify-start">
-                    <div class="flex-1">
-                        <p class="text-[#64748B]">Assignee:</p> 
-                        <p class="font-bold">Fahim Ahmed</p>
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-[#64748B]">Priority:</p>
-                        <p class="border border-red-400 rounded-2xl px-3 py-1 bg-red-200 w-5/12">${card.priority}</p>
-                    </div>
-                </div> -->
-
+                <!-- details-container part in main.js -->
             </div>
             <div class="modal-action">
                 <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
                     <button class="btn bg-[#4A00FF] text-white focus:outline-none ">Close</button>
                 </form>
             </div>
         </div>
     </dialog>
+    
     <script src="../script/login.js"></script>
     <script src="../script/main.js"></script>
 </body>
