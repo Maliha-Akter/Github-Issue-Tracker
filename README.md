@@ -97,7 +97,7 @@
 
 ## 5. What are template literals?
 
-- **Template literals** are a way to write strings in JavaScript using backticks `` ` ``
+- **Template literals** are a way to write strings in JavaScript using backticks `` ` `` 
   instead of single quote (' ') or double (" ") quotes.
     - They were introduced in **ES6**.
     - They allow **embedding variables and expressions** inside a string using `${}`.
