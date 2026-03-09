@@ -120,11 +120,11 @@ const displayEachCardDetail = (details) => {
                 </div>
                 <div class="bug-part flex items-center gap-2 mb-5">
                     <div class="flex items-center gap-1 bg-[#FECACA] text-[#EF4444] border border-[#EF4444] rounded-2xl px-3 py-1 uppercase">
-                        <img src="../assets/Vector.png" class="w-3 h-3" alt="">
+                        <img src="assets/Vector.png" class="w-3 h-3" alt="">
                         <p class="font-semibold text-xs">${details.labels[0]}</p>
                     </div>
                     <div class="label-one flex items-center gap-1 border border-[#D97706] bg-[#FFF6D1] text-[#D97706] rounded-2xl px-3 py-1 uppercase">
-                        <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
+                        <img src="assets/Lifebuoy.png" class="w-3 h-3" alt="">
                         <p class="font-semibold text-xs">${labelStatus}</p>
                     </div>
                 </div>
