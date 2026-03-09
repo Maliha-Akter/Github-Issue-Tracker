@@ -136,7 +136,7 @@ const displayEachCardDetail = (details) => {
                     </div>
                     <div class="flex-1">
                         <p class="text-[#64748B]">Priority:</p>
-                        <p class="border rounded-xl text-xs px-3 py-1 bg-[#EF4444] text-white inline-block text-center">${details.priority}</p>
+                        <p class="border rounded-xl text-[16px] px-3 py-1 bg-[#EF4444] text-white inline-block text-center details-priority-change font-bold">${details.priority}</p>
                     </div>
                 </div>
 
@@ -153,6 +153,17 @@ const displayEachCardDetail = (details) => {
     else if (details.status === "closed") {
         detailsStatusAlter.innerHTML = `Closed`;
     }
+    // high-medium-low design
+        const cardPriorityTwo = detailBox.querySelector(".details-priority-change");
+        if (details.priority.toLowerCase() === 'high') {
+            cardPriorityTwo.classList.add("high-design")
+        }
+        else if (details.priority.toLowerCase() === 'medium') {
+            cardPriorityTwo.classList.add("medium-design")
+        }
+        else {
+            cardPriorityTwo.classList.add("low-design")
+        }
 
 }
 
@@ -262,6 +273,8 @@ const displayAllCard = (id) => {
         else {
             cardPriority.classList.add("low-design")
         }
+        
+        //
 
         // 3. appending 
         cardInfo.append(cardDiv);
