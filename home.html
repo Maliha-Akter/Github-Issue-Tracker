@@ -27,7 +27,8 @@
 
 <body>
 
-    <header class="mt-4 px-8  mx-auto flex flex-col gap-5 md:flex-row md:justify-between  shadow-sm pb-3 top-0 sticky pt-3 bg-white">
+    <header
+        class="mt-4 px-8  mx-auto flex flex-col gap-5 md:flex-row md:justify-between  shadow-sm pb-3 top-0 sticky pt-3 bg-white">
         <div class="card-github-img flex items-center gap-1">
             <img class="w-9" src="assets/github-logo.png" alt="">
             <h1 class="font-semibold text-xl text-center"><a href="home.html">GitHub Issues Tracker</a></h1>
@@ -45,7 +46,7 @@
                     <input id="search-input" type="search" required placeholder="Search issues..." />
                 </label>
                 <button id="search-btn" class="btn bg-[#4A00FF] text-white join-item font-semibolds"><i
-                        class="fa-solid fa-plus"></i>New
+                        class="fa-solid fa-plus"></i>Search
                     Issue</button>
             </div>
         </div>
@@ -62,41 +63,44 @@
         </div>
 
     </section>
-    
+
     <!-- card part -->
-
-    <section class="bg-[#F8FAFC] mt-14 w-11/12 mx-auto ">
-        <section class="flex flex-col justify-center items-center md:flex-row md:justify-between px-6 rounded-sm shadow-lg border-b-2 border-b-gray-400 mb-10 py-6 md:py-1">
-            <div class="left-side-container flex gap-2 py-6 w-9/12 ">
-                <img class="p-1 md:p-2 h-10 w-10 border-none rounded-full bg-[#ECE4FF]" src="assets/Aperture.png" alt="">
-                <div>
-                    <h2 class="font-semibold text-xl"><span id="card-number">50</span> Issues</h2>
-                    <p class="text-[#64748B]">Track and manage your project issues</p>
-                </div>
+    <section class="w-11/12 mx-auto bg-[#FBFBFB] shadow-sm rounded-md">
+        <section class="flex   flex-col justify-center items-center md:flex-row md:justify-between px-6 rounded-sm shadow-lg border-b-2 border-b-gray-200 mb-10 py-6 md:py-1">
+        <div class="left-side-container flex gap-2 py-6 w-9/12 ">
+            <img class="p-1 md:p-2 h-10 w-10 border-none rounded-full bg-[#ECE4FF]" src="assets/Aperture.png" alt="">
+            <div>
+                <h2 class="font-semibold text-xl"><span id="card-number">50</span> Issues</h2>
+                <p class="text-[#64748B]">Track and manage your project issues</p>
             </div>
-            <div class="right-side-container flex gap-3">
-                <div class="flex items-center gap-3">
-                    <div class="w-4 h-4 rounded-full bg-[#00A96E] "></div>
-                    <h1 class="font-semibold">Open</h1>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-4 h-4 rounded-full bg-[#A855F7]"></div>
-                    <h1 class="font-semibold">Closed</h1>
-                </div>
-            </div>
-
-        </section>
-        <!-- spinner -->
-     <section >
-        <div id="spinner" class="flex items-center justify-center py-10 hidden">
-            <span class="loading loading-spinner loading-xl"></span>
         </div>
-     </section>
+        <div class="right-side-container flex gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-4 h-4 rounded-full bg-[#00A96E] "></div>
+                <h1 class="font-semibold">Open</h1>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="w-4 h-4 rounded-full bg-[#A855F7]"></div>
+                <h1 class="font-semibold">Closed</h1>
+            </div>
+        </div>
+
+    </section>
+    <section class="bg-[#F8FAFC] mt-14 w-[97%] mx-auto ">
+
+        <!-- spinner -->
+        <section>
+            <div id="spinner" class="flex items-center justify-center py-10 hidden">
+                <span class="loading loading-spinner loading-xl"></span>
+            </div>
+        </section>
         <!-- card -->
-        <div id="card-info" class="  mb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 shadow-sm rounded-lg space-y-5 ">
+        <div id="card-info"
+            class="  mb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 shadow-sm rounded-lg space-y-5 ">
             <!-- card-info part in main.js -->
         </div>
 
+    </section>
     </section>
 
     <!-- modal part -->
