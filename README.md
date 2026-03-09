@@ -5,7 +5,7 @@
 - **var** is a keyword which is used to declaring variable 
      - it is function scoped
      - can be re-declared and also can be updated
-      - **Example:**
+     - **Example:**
        ```javascript
         var name = "mira";
         var name = "Raj"; // redeclared
@@ -14,21 +14,21 @@
     - Block scoped
     - Cannot be re-declared
     - Can be updated
-     - **Example:**
+    - **Example:**
       ```javascript
-        let age = 20;
-        age = 25; // allowed
-        // let age = 30; // Error
+      let age = 20;
+      age = 25; // allowed
+      // let age = 30; // Error
 - **const** declares block-scoped local variables. 
     - The value of a constant can't be changed
     - Block scoped
     - Cannot be re-declared
     - Cannot be updated
     - Must be initialized when declared
-     - **Example:**
+    - **Example:**
       ```javascript
-        const PI = 3.14;
-        // PI = 3.1416 
+      const PI = 3.14;
+      // PI = 3.1416 
 
 ## 2. What is the spread operator (...)?
 
