@@ -1,0 +1,233 @@
+// by default
+document.getElementById("All-btn").classList.add("btn-hover");
+const btnAll = document.getElementById("All-btn");
+const btnOpen = document.getElementById("Open-btn");
+const btnClose = document.getElementById("Close-btn");
+
+// array
+let allIssues = [];
+
+const loadAllCard = async () => {
+    const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+    const res = await fetch(url);
+    const json = await res.json();
+    allIssues = json.data
+    displayAllCard(allIssues);
+    // displayStatus(allIssues);
+    // openButton.addEventListener("click", loadOpenCard(data.id));
+    // Event Listeners for Filtering
+    document.getElementById("All-btn").addEventListener("click", () => {
+        displayAllCard(allIssues);
+        const btn = document.getElementById("All-btn");
+        btnAll.classList.add("btn-hover");
+        btnOpen.classList.remove("btn-hover");
+        btnClose.classList.remove("btn-hover");
+
+    });
+
+    document.getElementById("Open-btn").addEventListener("click", () => {
+        const openIssues = allIssues.filter(issue => issue.status === "open");
+        displayAllCard(openIssues);
+        btnOpen.classList.add("btn-hover");
+        btnAll.classList.remove("btn-hover");
+        btnClose.classList.remove("btn-hover");
+    });
+
+    document.getElementById("Close-btn").addEventListener("click", () => {
+        const closedIssues = allIssues.filter(issue => issue.status === "closed");
+        displayAllCard(closedIssues);
+        btnClose.classList.add("btn-hover");
+        btnAll.classList.remove("btn-hover");
+        btnOpen.classList.remove("btn-hover");
+    });
+
+
+}
+const loadEachCardDetail = (id) => {
+    displayEachCardDetail(id);
+}
+
+const displayEachCardDetail = (details) => {
+    //  console.log(details)
+
+    // condition check before creating html part
+    // 1 no condition
+    const assignName = details.assignee === "" ? "Unassigned" : details.assignee
+    // 2 no condition
+    const labelStatus = details.labels[1] ? details.labels[1] : "";
+
+    document.getElementById("my_modal_5").showModal();
+
+    const detailBox = document.getElementById("details-container");
+    detailBox.innerHTML = `
+                <h1 class="text-2xl font-bold">${details.title}</h1>
+                <div class="flex space-x-3 mb-4">
+                    <div class="border bg-[#00A96E] text-white rounded-2xl px-3 py-1 text-xs text-center detail-status"></div>
+                    <div class="flex items-center gap-1">
+                        <div class="w-1 h-1 rounded-full bg-[#515453] "></div>
+                        <p class="text-xs text-[#64748B]">Opened by ${details.author}</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <div class="w-1 h-1 rounded-full bg-[#64748B] "></div>
+                        <p class="text-xs text-[#64748B]">${details.createdAt}</p>
+                    </div>
+
+                </div>
+                <div class="bug-part flex items-center gap-2 mb-5">
+                    <div class="flex items-center gap-1 border border-red-400 rounded-2xl px-3">
+                        <img src="../assets/Vector.png" class="w-3 h-3" alt="">
+                        <p class="text-red-400 font-semibold text-xs">${details.labels[0]}</p>
+                    </div>
+                    <div class="label-one flex items-center gap-1 border border-yellow-400 rounded-2xl px-3">
+                        <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
+                        <p class="text-yellow-400 font-semibold text-xs">${labelStatus}</p>
+                    </div>
+                </div>
+                <p class="text-[#64748B] mb-10">${details.description}</p>
+                <div class="flex justify-start">
+                    <div class="flex-1">
+                        <p class="text-[#64748B]">Assignee:</p> 
+                        <p class="font-bold">${details.author}</p>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-[#64748B]">Priority:</p>
+                        <p class="border rounded-xl text-xs px-3 py-1 bg-[#EF4444] text-white inline-block text-center">${details.priority}</p>
+                    </div>
+                </div>
+
+`
+    const labelOneRemove = detailBox.querySelector(".label-one");
+    const detailsStatusAlter = detailBox.querySelector(".detail-status");
+    if (!details.labels[1]) {
+        labelOneRemove.classList.add("hidden")
+    }
+    // check-2
+    if (details.status === "open") {
+        detailsStatusAlter.innerHTML = `Opened`;
+    }
+    else if (details.status === "closed") {
+        detailsStatusAlter.innerHTML = `Closed`;
+    }
+
+}
+
+const displayStatus = (statusImage, statusValue, cardDiv) => {
+    const openState = statusImage.querySelector(".active-open");
+    const closeState = statusImage.querySelector(".active-close");
+
+    if (statusValue === "open") {
+        cardDiv.classList.add("card-border-open");
+        openState.classList.remove("hidden");
+        closeState.classList.add("hidden")
+    }
+    else {
+        cardDiv.classList.add("card-border-close");
+        closeState.classList.remove("hidden");
+        openState.classList.add("hidden")
+    }
+
+}
+
+const displayAllCard = (id) => {
+    let cardNo = 0;
+    // 1. getting id
+    const cardInfo = document.getElementById("card-info");
+    cardInfo.innerHTML = "";
+    // add border top
+    // card-info.classList.add("card-border-open");
+    for (let card of id) {
+        console.log(card);
+        cardNo++;
+        // condition check before creating html part
+        // 1 no condition
+        const assignName = card.assignee === "" ? "Unassigned" : card.assignee
+        // 2 no condition
+        const labelStatus = card.labels[1] ? card.labels[1] : "";
+
+
+        // 2. creating element
+        const cardDiv = document.createElement("div");
+        cardDiv.innerHTML = `
+        <div class="shadow-sm rounded-2xl h-full" id="single-card">
+                <section class=" border-b-2 border-b-gray-400  ">
+                <div class="py-3  mt-4 p-4 space-y-4">
+                    <div class="flex justify-between">
+                        <div class= "flex status-img" >
+                            <img class="active-close" src="../assets/Closed- Status .png" alt="">
+                            <img class="active-open" src="../assets/Open-Status.png" alt="">
+                        </div>
+                        <div>
+                            <p class="border border-red-400 rounded-2xl px-3 bg-red-200">${card.priority}</p>
+                        </div>
+
+                    </div>
+                    <div class="card-text">
+                        <div class = "min-h-16">
+                        <h1 class="font-semibold">${card.title}</h1>
+                        </div>
+                        <div class = "min-h-16">
+                        <p class="text-[#64748B] text-xs">${card.description}</p>
+                        </div>
+                    </div>
+                    <div class="bug-part flex items-center gap-2 mb-2">
+                        <div class="flex items-center gap-1 border border-red-400 rounded-2xl px-3">
+                            <img src="../assets/Vector.png" class="w-3 h-3" alt="">
+                            <p class="text-red-400 font-semibold text-xs">${card.labels[0]}</p>
+                        </div>
+                        <div class="label-one flex items-center gap-1 border border-yellow-400 rounded-2xl px-3">
+                            <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
+                            <p class="text-yellow-400 font-semibold text-xs">${labelStatus}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="p-4 space-y-2 mt-4">
+                 <div class="flex justify-between items-center gap-4">
+                    <p class="text-xs text-[#64748B]">#${card.id} ${card.author}</p>
+                    <p class="text-xs text-[#64748B]">${card.createdAt}</p>
+                </div>
+                <div class="flex justify-between items-center gap-4">
+                    <p class="text-xs text-[#64748B]">Assignee : ${assignName}</p>
+                    <p class="text-xs text-[#64748B]">${card.updatedAt}</p>
+                </div>
+            </div>
+            </div>
+        `
+        // status image related
+        const statusImage = cardDiv.querySelector(".status-img");
+        displayStatus(statusImage, card.status, cardDiv);
+        //label part 
+        const labelOneRemove = cardDiv.querySelector(".label-one");
+        if (!card.labels[1]) {
+            labelOneRemove.classList.add("hidden")
+        }
+        // creating onclick event listener on card
+        cardDiv.addEventListener("click", () => {
+            loadEachCardDetail(card);
+        })
+        // 3. appending 
+        cardInfo.append(cardDiv);
+
+
+
+    }
+    const cardSpan = document.getElementById("card-number");
+    cardSpan.innerHTML = cardNo;
+}
+loadAllCard()
+
+// {
+//     "id": 47,
+//     "title": "Add code syntax highlighting",
+//     "description": "Implement syntax highlighting for code blocks in comments and descriptions.",
+//     "status": "open",
+//     "labels": [
+//         "enhancement",
+//         "good first issue"
+//     ],
+//     "priority": "low",
+//     "author": "syntax_simon",
+//     "assignee": "",
+//     "createdAt": "2024-01-25T11:00:00Z",
+//     "updatedAt": "2024-01-25T11:00:00Z"
+// }

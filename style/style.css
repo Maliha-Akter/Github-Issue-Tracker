@@ -9,6 +9,16 @@ body{
     background-color: #F8FAFC;
 }
 
-.high-bug{
+.btn-hover{
+  background-color: #4A00FF;
+  color: white;
+}
+.card-border-open{
+    border-top: 6px solid green;
+    border-radius: 10px;
     
+}
+.card-border-close{
+    border-top: 6px solid #A855F7;
+    border-radius: 10px;
 }
