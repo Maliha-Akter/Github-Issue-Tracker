@@ -5,8 +5,8 @@
 - **var** is a keyword which is used to declaring variable 
      - it is function scoped
      - can be re-declared and also can be updated
-     - **Example**:
-      ```javascript
+      - **Example**:
+       ```javascript
         var name = "mira";
         var name = "Raj"; // redeclared
         name = "Ali";
@@ -14,7 +14,7 @@
     - Block scoped
     - Cannot be re-declared
     - Can be updated
-    - **Example**:
+     - **Example**:
       ```javascript
         let age = 20;
         age = 25; // allowed
@@ -25,7 +25,7 @@
     - Cannot be re-declared
     - Cannot be updated
     - Must be initialized when declared
-    - **Example**:
+     - **Example**:
       ```javascript
         const PI = 3.14;
         // PI = 3.1416 
@@ -53,47 +53,47 @@
 - **map()** is used to transform each element of an array.
   - It returns a **new array**
   - The number of elements remains the same
-  - **Example:**
-   ```javascript
-  const numbers = [1, 2, 3];
-  const doubled = numbers.map(num => num * 2);
-  console.log(doubled); // [2, 4, 6]
+   - **Example:**
+     ```javascript
+      const numbers = [1, 2, 3];
+      const doubled = numbers.map(num => num * 2);
+      console.log(doubled); // [2, 4, 6]
 
 - **filter()** is used to select elements based on a condition.
   - It returns a new array
   - Only elements that match the condition are included
-  - **Example:**
-    ```javascript
-    const numbers = [1, 2, 3, 4];
-    const evenNumbers = numbers.filter(num => num % 2 === 0);
-    console.log(evenNumbers); // [2, 4]
+   - **Example:**
+     ```javascript
+       const numbers = [1, 2, 3, 4];
+       const evenNumbers = numbers.filter(num => num % 2 === 0);
+       console.log(evenNumbers); // [2, 4]
 
 - **forEach()** is used to run a function for each element in an array.
     - It does not return a new array
     - It is mainly used to perform actions like print, or update something
-    - **Example:**
-      ```javascript 
-       const numbers = [1, 2, 3];
-       numbers.forEach(num => {
-       console.log(num);
-       });
+      - **Example:**
+        ```javascript 
+          const numbers = [1, 2, 3];
+          numbers.forEach(num => {
+          console.log(num);
+          });
 
 ## 4. What is an arrow function?
 
 - **Arrow function** is a shorter syntax for writing functions in JavaScript.
    - It was introduced in **ES6**.
    - It uses the `=>` symbol instead of the `function` keyword.
-   - **Example:**
-    ```javascript
-       // Normal function we call
-       function add(a, b) {
-       return a + b;
-       }
+     - **Example:**
+       ```javascript
+         // Normal function we call
+         function add(a, b) {
+         return a + b;
+         }
 
-       // Arrow function
-       const add = (a, b) => {
-       return a + b;
-       };
+         // Arrow function
+         const add = (a, b) => {
+         return a + b;
+         };
 
 ## 5. What are template literals?
 
@@ -101,7 +101,7 @@
   instead of single quote (' ') or double (" ") quotes.
     - They were introduced in **ES6**.
     - They allow **embedding variables and expressions** inside a string using `${}`.
-    - **Example:**
+      - **Example:**
          ```javascript
             const name = "Mira";
             const age = 20;
