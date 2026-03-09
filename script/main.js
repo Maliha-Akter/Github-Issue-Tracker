@@ -113,18 +113,18 @@ const displayEachCardDetail = (details) => {
                     </div>
                     <div class="flex items-center gap-1">
                         <div class="w-1 h-1 rounded-full bg-[#64748B] "></div>
-                        <p class="text-xs text-[#64748B]">${details.createdAt}</p>
+                        <p class="text-xs text-[#64748B]">${details.createdAt.split('T')[0]}</p>
                     </div>
 
                 </div>
                 <div class="bug-part flex items-center gap-2 mb-5">
-                    <div class="flex items-center gap-1 border border-red-400 rounded-2xl px-3">
+                    <div class="flex items-center gap-1 bg-[#FECACA] text-[#EF4444] border border-[#EF4444] rounded-2xl px-3 py-1 uppercase">
                         <img src="../assets/Vector.png" class="w-3 h-3" alt="">
-                        <p class="text-red-400 font-semibold text-xs">${details.labels[0]}</p>
+                        <p class="font-semibold text-xs">${details.labels[0]}</p>
                     </div>
-                    <div class="label-one flex items-center gap-1 border border-yellow-400 rounded-2xl px-3">
+                    <div class="label-one flex items-center gap-1 border border-[#D97706] bg-[#FFF6D1] text-[#D97706] rounded-2xl px-3 py-1 uppercase">
                         <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
-                        <p class="text-yellow-400 font-semibold text-xs">${labelStatus}</p>
+                        <p class="font-semibold text-xs">${labelStatus}</p>
                     </div>
                 </div>
                 <p class="text-[#64748B] mb-10">${details.description}</p>
@@ -193,7 +193,7 @@ const displayAllCard = (id) => {
         const cardDiv = document.createElement("div");
         cardDiv.innerHTML = `
         <div class="shadow-sm rounded-2xl h-full" id="single-card">
-                <section class=" border-b-2 border-b-gray-400  ">
+                <section class=" border-b-2 border-b-gray-200  ">
                 <div class="py-3  mt-4 p-4 space-y-4">
                     <div class="flex justify-between">
                         <div class= "flex status-img" >
@@ -206,19 +206,19 @@ const displayAllCard = (id) => {
 
                     </div>
                     <div class="card-text">
-                        <div class = "min-h-16">
+                        <div class = "min-h-14">
                         <h1 class="font-semibold">${card.title}</h1>
                         </div>
-                        <div class = "min-h-14 lg:min-h-16">
+                        <div class = "min-h-14 md:min-h-10">
                         <p class="text-[#64748B] text-xs">${card.description}</p>
                         </div>
                     </div>
-                    <div class="bug-part flex flex-col md:flex-row items-center gap-1 mb-2 min-h-12 md:min-h-10 lg:min-h-14">
+                    <div class="bug-part flex flex-col md:flex-row items-center gap-1 mb-2 min-h-12 md:min-h-10 lg:min-h-9">
                         <div class="flex items-center gap-1 border border-red-400 bg-[#FECACA]  rounded-2xl px-4 md:pl-3 py-1">
                             <img src="../assets/Vector.png" class="w-3 h-3" alt="">
                             <p class="text-red-400 font-semibold text-xs text-center uppercase">${card.labels[0]}</p>
                         </div>
-                        <div class="label-one flex items-center gap-1 border border-[#D97706] bg-[#FDE68A] rounded-2xl px-4 md:pl-2 py-1">
+                        <div class="label-one flex items-center gap-1 border border-[#D97706] bg-[#FFF6D1] rounded-2xl px-4 md:pl-2 py-1">
                             <img src="../assets/Lifebuoy.png" class="w-3 h-3" alt="">
                             <p class="text-[#D97706] font-semibold text-xs text-center uppercase">${labelStatus}</p>
                         </div>
@@ -228,11 +228,11 @@ const displayAllCard = (id) => {
             <div class="p-4 space-y-2 mt-4">
                  <div class="flex justify-between items-center gap-4">
                     <p class="text-xs text-[#64748B]">#${card.id} ${card.author}</p>
-                    <p class="text-xs text-[#64748B]">${card.createdAt}</p>
+                    <p class="text-xs text-[#64748B]">${card.createdAt.split('T')[0]}</p>
                 </div>
                 <div class="flex justify-between items-center gap-4">
                     <p class="text-xs text-[#64748B]">Assignee : ${assignName}</p>
-                    <p class="text-xs text-[#64748B]">${card.updatedAt}</p>
+                    <p class="text-xs text-[#64748B]">${card.updatedAt.split('T')[0]}</p>
                 </div>
             </div>
             </div>
