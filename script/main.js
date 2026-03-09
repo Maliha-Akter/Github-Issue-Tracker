@@ -20,9 +20,10 @@ const loadAllCard = async () => {
         const res = await fetch(url);
         const json = await res.json();
         allIssues = json.data
+        console.log(json)
         displayAllCard(allIssues);
         spinner(false);
-    }, 500); // 50ms is enough
+    }, 500); // 500ms is enough
     // displayStatus(allIssues);
     // openButton.addEventListener("click", loadOpenCard(data.id));
     // Event Listeners for Filtering
@@ -189,7 +190,6 @@ const displayAllCard = (id) => {
     // 1. getting id
     const cardInfo = document.getElementById("card-info");
     cardInfo.innerHTML = "";
-    // add border top
     // card-info.classList.add("card-border-open");
     for (let card of id) {
         console.log(card);
