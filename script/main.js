@@ -101,6 +101,7 @@ const displayEachCardDetail = (details) => {
     const labelStatus = details.labels[1] ? details.labels[1] : "";
 
     document.getElementById("my_modal_5").showModal();
+    
 
     const detailBox = document.getElementById("details-container");
     detailBox.innerHTML = `
